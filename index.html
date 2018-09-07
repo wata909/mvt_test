@@ -52,14 +52,8 @@ var mvtSource = new L.TileLayer.MVTSource({
     getIDForLayerFeature: function(feature) {
         return feature.properties["P07_002"];
     },
-    filter: function(feature, context) {
-        if (feature.layer.name === 'gs_pointgeojson') {
-            return true;
-        }
-    return false;
-    },
-    onClick: onGsClick,
     style: function (feature) {
+        console.log(feature)
         var style = {};    
         var type = feature.type;
         switch (type) {
