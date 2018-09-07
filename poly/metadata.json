@@ -1,0 +1,13 @@
+{
+"name": "poly",
+"description": "poly",
+"version": "2",
+"minzoom": "0",
+"maxzoom": "6",
+"center": "141.000000,43.333333,6",
+"bounds": "141.000000,42.666667,142.000000,43.333333",
+"type": "overlay",
+"format": "pbf",
+"generator": "tippecanoe v1.31.5",
+"json": "{\"vector_layers\": [ { \"id\": \"polygon\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 6, \"fields\": {} } ],\"tilestats\": {\"layerCount\": 1,\"layers\": [{\"layer\": \"polygon\",\"count\": 620000,\"geometry\": \"Polygon\",\"attributeCount\": 0,\"attributes\": []}]}}"
+}
