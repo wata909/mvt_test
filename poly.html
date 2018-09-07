@@ -51,15 +51,11 @@ var mvtSource = new L.TileLayer.MVTSource({
     mutexToggle:true,
     getIDForLayerFeature: function(feature) {
         return feature.properties["P07_002"];
+
     },
-    filter: function(feature, context) {
-        if (feature.layer.name === 'gs_pointgeojson') {
-            return true;
-        }
-    return false;
-    },
-    onClick: onGsClick,
+
     style: function (feature) {
+        console.log(feature)
         var style = {};    
         var type = feature.type;
         switch (type) {
@@ -82,9 +78,9 @@ var mvtSource = new L.TileLayer.MVTSource({
                 };
             break;
             case 3: //'Polygon'
-                style.color = fillColor;
+                style.color = 'rgba(255,140,0,0.3)';
                 style.outline = {
-                    color: strokeColor,
+                    color:  'rgba(255,140,0,1)',
                     size: 1
                 };
                 style.selected = {
