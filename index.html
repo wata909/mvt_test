@@ -35,31 +35,25 @@ var map = L.map('map',{
 }).setView([36.204824,138.252924], 6) 
 var hash = new L.Hash(map)
 map.addControl( new L.Control.Gps() )
-
-
-
-
 var popup = L.popup();
 var  onGsClick = function(e) {
     if (!e.feature) return 
     popup
         .setLatLng(e.latlng)
-        .setContent(e.feature.properties["id"])
+        .setContent(e.feature.properties["P07_002"])
         .openOn(map);
 }
-
-
 var mvtSource = new L.TileLayer.MVTSource({
-    url: "./point/{z}/{x}/{y}.pbf",
+    url: "./tiles/{z}/{x}/{y}.pbf",
     maxZoom: 20,
 //  debug: true,
-    clickableLayers: ["point"],
+    clickableLayers: ["gs_pointgeojson"],
     mutexToggle:true,
     getIDForLayerFeature: function(feature) {
-        return feature.properties["id"];
+        return feature.properties["P07_002"];
     },
     filter: function(feature, context) {
-        if (feature.layer.name === 'point') {
+        if (feature.layer.name === 'gs_pointgeojson') {
             return true;
         }
     return false;
@@ -104,16 +98,12 @@ var mvtSource = new L.TileLayer.MVTSource({
         }
         return style;
     }
-
 });
-
-
 L.tileLayer('http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: "<a href='https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9' target='_blank'>ArcGIS/Map Service</a>",
     maxZoom: 20,
     id: 'examples.map-i86knfo3'
 }).addTo(map);
-
 map.addLayer(mvtSource);
 </script>
 </body>
